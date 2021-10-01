@@ -103,29 +103,7 @@ class Application:
                         str(self.final_id) + " \n")
     # funtion to call when the submit button is clicked
 
-    def add_appointment(self):
-        # getting the user inputs
-        self.val1 = self.name_ent.get()
-        self.val2 = self.age_ent.get()
-        self.val3 = self.gender_ent.get()
-        self.val4 = self.location_ent.get()
-        self.val5 = self.time_ent.get()
-        self.val6 = self.phone_ent.get()
-
-        # checking if the user input is empty
-        if self.val1 == '' or self.val2 == '' or self.val3 == '' or self.val4 == '' or self.val5 == '':
-            tkinter.messagebox.showinfo("Warning", "Please Fill Up All Boxes")
-        else:
-            # now we add to the database
-            sql = "INSERT INTO 'appointments' (name, age, gender, location, scheduled_time, phone) VALUES(?, ?, ?, ?, ?, ?)"
-            c.execute(sql, (self.val1, self.val2, self.val3,
-                            self.val4, self.val5, self.val6))
-            conn.commit()
-            tkinter.messagebox.showinfo(
-                "Success", "Booking for " + str(self.val1) + " has been created")
-            self.box.insert(END, 'Booking fixed for ' +
-                            str(self.val1) + ' ---> ' + str(self.val5))
-
+    
 
 # creating the object
 root = Tk()
